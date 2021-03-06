@@ -1,0 +1,5 @@
+processing\HarTransformMapper.class
+processing\OnmsHarPollMetaData.class
+com\ic\monitoring\elastic\ElasticClient.class
+processing\Selenium.class
+timer\ThreadPool.class
