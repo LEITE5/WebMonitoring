@@ -3,13 +3,17 @@
 [ for ( .log.entries)
 {
   "pollMetadata" : $pollMetaData,
+  "request" : {
+    "queryString" : "REMOVED",
+        * : .
+  },
   "response" : {
     "content" : {
-       "text" : "REMOVED",
+      "text" : "REMOVED",
         * : .
-     }
+     },
+    * : .
   },
   * : .
 }
-
 ]

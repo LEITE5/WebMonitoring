@@ -72,12 +72,12 @@ public class Selenium implements Runnable{
             proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
 
             //proxy.newHar("www.bbc.co.uk");
-            proxy.newHar("asuse");
+            proxy.newHar("youtube.com");
 
             System.out.println("***************** driver configured - getting site: ");
 
             //            driver.get("http://192.168.1.1/");
-            driver.get("https://learn.solent.ac.uk/");
+            driver.get("https://www.youtube.com/");
 
             System.out.println("***************** driver get complete - writing har ");
 

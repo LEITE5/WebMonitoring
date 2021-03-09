@@ -17,18 +17,13 @@ import processing.Selenium;
  */
 public class ThreadPool {
      public static void main(String[] args) 
-    {
-        ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(1);        
+    {      
         
         ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);
 
-         
-
             System.out.println("ITERATION --- ");
             Selenium task = new Selenium();
-//            System.out.println("Created : " + task.getName());
-            exec.scheduleAtFixedRate(task , 0, 5, TimeUnit.MINUTES);
-            executor.execute(task);
+            exec.scheduleAtFixedRate(task , 0, 3, TimeUnit.MINUTES);
 
     }
 }
