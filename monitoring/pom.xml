@@ -1,143 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.ic</groupId>
     <artifactId>monitoring</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <version>0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
     <properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 
-		<jackson2Version>2.10.0</jackson2Version>
-		<jestVersion>6.3.1</jestVersion>
-		<!-- <jestVersion>5.3.3</jestVersion> opennms -->
+        <maven.surefire.plugin.version>2.18</maven.surefire.plugin.version>
+        <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
+        <maven-replacer-plugin.version>1.5.3</maven-replacer-plugin.version>
+        <maven-war-plugin.version>3.2.3</maven-war-plugin.version>
+        <maven-cargo-maven2-plugin.version>1.7.6</maven-cargo-maven2-plugin.version>
+        <onejar-maven-plugin.version>1.4.4</onejar-maven-plugin.version>
 
-		<log4j.version>2.12.1</log4j.version>
-		<slf4j.version>1.7.12</slf4j.version>
-		
-				<browsermob-core-version>2.1.5</browsermob-core-version>
-		<selenium-java-version>3.141.59</selenium-java-version>
-		<webdrivermanager-version>4.2.2</webdrivermanager-version>
-	</properties>
+    </properties>
+    
+    <profiles>
+        <profile>
+            <id>all</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>service</module>
+                <module>assembly</module>
+            </modules>
+        </profile>
+        <!-- this will only work if you are running on a linux machine with installed docker -->
+        <profile>
+            <id>packageAsDocker</id>
+            <modules>
+                <module>service</module>
+                <module>assembly</module>
+                <module>docker</module>
+            </modules>
+        </profile>
+    </profiles>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M5</version>
-			</plugin>
-		</plugins>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven-war-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${maven-dependency-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.google.code.maven-replacer-plugin</groupId>
+                    <artifactId>replacer</artifactId>
+                    <version>${maven-replacer-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven.surefire.plugin.version}</version>
+                    <configuration>
+                        <excludes>
+                            <!-- prevent tests running in any package with manual filter. -->
+                            <!-- These are manual one off development tests -->
+                            <exclude>**/manual/*.java</exclude>
+                        </excludes>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.cargo</groupId>
+                    <artifactId>cargo-maven2-plugin</artifactId>
+                    <version>${maven-cargo-maven2-plugin.version}</version>
+                </plugin>
+   
+                <plugin>
+                    <groupId>com.jolira</groupId>
+                    <artifactId>onejar-maven-plugin</artifactId>
+                    <version>${onejar-maven-plugin.version}</version>
+                </plugin>
 
-	</build>
+            </plugins>
+        </pluginManagement>
+    </build>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
 
-	<dependencies>
-
-		<!-- <dependency> -->
-		<!-- <groupId>io.searchbox</groupId> -->
-		<!-- <artifactId>jest-complete-osgi</artifactId> -->
-		<!-- <version>5.3.3</version> -->
-		<!-- </dependency> -->
-
-		<dependency>
-			<groupId>com.schibsted.spt.data</groupId>
-			<artifactId>jslt</artifactId>
-			<version>0.1.11</version>
-		</dependency>
-
-		<dependency>
-			<groupId>io.searchbox</groupId>
-			<artifactId>jest</artifactId>
-			<version>${jestVersion}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson2Version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13.1</version>
-		 <type>jar</type>
-		</dependency>
-		
-		<dependency>
-			<groupId>net.lightbody.bmp</groupId>
-			<artifactId>browsermob-core</artifactId>
-			<version>${browsermob-core-version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>${selenium-java-version}</version>
-			
-		</dependency>
-		<dependency>
-			<groupId>io.github.bonigarcia</groupId>
-			<artifactId>webdrivermanager</artifactId>
-			<version>${webdrivermanager-version}</version>
-		</dependency>
-
-		<!-- needed for FirfoxDriver -->
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>23.0</version>
-		</dependency>
-
-		<!-- logging dependencies -->
-
-		<!-- SLF4J Logging -->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-slf4j-impl</artifactId>
-			<version>${log4j.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>${log4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>${log4j.version}</version>
-		</dependency>
-
-	</dependencies>
-
-	<repositories>
-		<repository>
-			<id>central</id>
-			<name>Maven Central</name>
-			<url>https://repo1.maven.org/maven2/</url>
-		</repository>
-		<repository>
-			<id>opennms-repo</id>
-			<name>OpenNMS Repository</name>
-			<url>http://maven.opennms.org/content/groups/opennms.org-release/</url>
-		</repository>
-		<repository>
-			<id>opennms-snapshot-repo</id>
-			<name>OpenNMS Snapshot Repository</name>
-			<url>http://maven.opennms.org/content/groups/opennms.org-snapshot/</url>
-		</repository>
-		<repository>
-			<id>opennms-repo-2</id>
-			<name>OpenNMS Repo 2</name>
-			<url>https://repo.opennms.org/maven2/</url>
-		</repository>
-	</repositories>
-       </project>
+</project>

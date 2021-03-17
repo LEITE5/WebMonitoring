@@ -1,0 +1,12 @@
+FROM fabric8/java-centos-openjdk11-jdk
+
+RUN yum update -y; \
+    yum install -y wget unzip curl vim python-setuptools sudo; \
+    easy_install supervisor
+RUN wget https://download.java.net/openjdk/jdk${JAVA_VER}/ri/openjdk-${JAVA_VER}+28_linux-x64_bin.tar.gz -O /opt/jdk.tar.gz
+
+RUN cd /opt; \
+    tar -xvf jdk.tar.gz; \
+    rm jdk.tar.gz
+    
+COPY /target/docker/monitoring-0.1-SNAPSHOT-onejar.jar /deployments/onejar.jar 
