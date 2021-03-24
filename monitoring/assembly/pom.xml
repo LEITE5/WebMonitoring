@@ -6,7 +6,8 @@
         <artifactId>monitoring</artifactId>
         <version>0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>monitoring-assembly</artifactId>
+    <artifactId>assembly</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     
     <build>
@@ -21,7 +22,7 @@
                 <executions>
                     <execution>
                         <configuration>
-                            <mainClass>com.ic.timer.Threadpool</mainClass>
+                            <mainClass>com.ic.monitoring.assembly.Main</mainClass>
                             <onejarVersion>0.97</onejarVersion>
                             <attachToBuild>true</attachToBuild>
                             <filename>${project.artifactId}-onejar.jar</filename> 
@@ -40,12 +41,19 @@
     <dependencies>
         
         <!-- project dependencies -->
+        
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.12</version>
+            <type>jar</type>
+        </dependency>
         <dependency>
             <groupId>com.ic</groupId>
             <artifactId>monitoring-service</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
+            <version>0.1-SNAPSHOT</version>
+            <type>jar</type>
         </dependency>
-
     </dependencies>
+    <name>assembly</name>
 </project>

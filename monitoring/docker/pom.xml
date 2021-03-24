@@ -61,8 +61,8 @@
         <!-- project one-jar dependencies -->
         <dependency>
             <groupId>com.ic</groupId>
-            <artifactId>monitoring</artifactId>
-            <version>${project.version}</version>
+            <artifactId>assembly</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
             <classifier>onejar</classifier>
         </dependency>
