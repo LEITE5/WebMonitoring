@@ -14,6 +14,8 @@ import processing.Selenium;
 /**
  *
  * @author leite
+ * Execution command through one jar file in assembly - java -jar assembly-onejar.jar D:\Downloads\geckodriver.exe
+ *
  */
 public class WebPoller {
 

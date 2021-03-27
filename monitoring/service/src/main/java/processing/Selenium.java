@@ -28,6 +28,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import processing.HarTransformMapper;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -44,10 +45,11 @@ public class Selenium implements Runnable{
 
     @Override
     public void run() {
-        FileOutputStream fos = null;
+//        FileOutputStream fos = null;
         BrowserMobProxy proxy = null;
         WebDriver driver = null;
         String data = null;
+        StringWriter writer = null;
         HarTransformMapper harMapper = null;
         String elasticUrl = "http://localhost:9200";
         String indexName = "webdata";
@@ -85,12 +87,12 @@ public class Selenium implements Runnable{
             proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
 
             //proxy.newHar("www.bbc.co.uk");
-            proxy.newHar("youtube.com");
+            proxy.newHar("learn.solent.ac.uk");
 
             System.out.println("***************** driver configured - getting site: ");
 
             //            driver.get("http://192.168.1.1/");
-            driver.get("https://www.youtube.com/");
+            driver.get("https://learn.solent.ac.uk/");
 
             System.out.println("***************** driver get complete - writing har ");
 
@@ -99,15 +101,16 @@ public class Selenium implements Runnable{
             proxy.endHar();
             
              
-            StringWriter writer = new StringWriter();
+           writer = new StringWriter();
             try {
                             har.writeTo(writer);
+                            data = writer.toString();
                     } catch (IOException e) {
                             // TODO Auto-generated catch block
                             e.printStackTrace();
                     }
-            data = writer.toString();
-
+            
+            
 //        try {
 //            fos = new FileOutputStream(f);
 //            har.writeTo(fos);
@@ -143,7 +146,7 @@ public class Selenium implements Runnable{
             if (driver != null) {
                 System.out.println("***************** shutting down driver");
                 driver.quit();
-            }
+            }         
 //            if (fos != null) {
 //                try {
 //                    fos.close();
@@ -159,13 +162,13 @@ public class Selenium implements Runnable{
         System.out.println("***************** reading data  :" + data.length());
         
         ObjectMapper mapper = new ObjectMapper();
-        System.out.println("JSON NODE BREAKING 1");
+        System.out.println("BREAKING 1");       
         harMapper = new HarTransformMapper();
-        System.out.println("JSON NODE BREAKING 2");
+        System.out.println("BREAKING 2");
 
         //To define metaData
         OnmsHarPollMetaData metaData = new OnmsHarPollMetaData();
-        System.out.println("JSON NODE BREAKING 3");
+        System.out.println("BREAKING 3");
         
         
         JsonNode input = mapper.readTree(data);

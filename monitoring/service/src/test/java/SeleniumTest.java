@@ -21,6 +21,30 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import processing.Selenium;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.ic.monitoring.elastic.ElasticClient;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import net.lightbody.bmp.BrowserMobProxy;
+import net.lightbody.bmp.BrowserMobProxyServer;
+import net.lightbody.bmp.client.ClientUtil;
+import net.lightbody.bmp.core.har.Har;
+import net.lightbody.bmp.proxy.CaptureType;
+import org.junit.Test;
+import org.openqa.selenium.Proxy;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import processing.HarTransformMapper;
+import processing.OnmsHarPollMetaData;
 
 /**
  *
@@ -28,11 +52,17 @@ import processing.Selenium;
  */
 public class SeleniumTest {
     
-     
+//     @Test
      public void hello() {
          FileOutputStream fos = null;
         BrowserMobProxy proxy = null;
         WebDriver driver = null;
+        HarTransformMapper harMapper = null;
+        String elasticUrl = "http://localhost:9200";
+        String indexName = "testsol";
+        String indexType = "testsol";
+        ElasticClient elasticClient;
+        elasticClient = new ElasticClient(elasticUrl, indexName, indexType);
 
         try {
             
@@ -61,12 +91,12 @@ public class SeleniumTest {
             proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
 
             //proxy.newHar("www.bbc.co.uk");
-            proxy.newHar("youtube.com");
+            proxy.newHar("learn.solent.ac.uk");
 
             System.out.println("***************** driver configured - getting site: ");
 
             //            driver.get("http://192.168.1.1/");
-            driver.get("https://www.youtube.com/");
+            driver.get("https://learn.solent.ac.uk/");
 
             System.out.println("***************** driver get complete - writing har ");
 
@@ -110,6 +140,32 @@ public class SeleniumTest {
             
         }
         System.out.println("***************** TEST COMPLETE - File saved");
+        System.out.println("***************** TEST COMPLETE - File saved");
+
+        try {
+        //Pre process and send har file to ElasticSerach  
+        System.out.println("***************** START TEST - PREPROCESS AND SEND JSONFILE");
+        File inputFile = new File("target/newSolTest.har");
+        System.out.println("reading inputFile from :" + inputFile.getAbsolutePath());
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        harMapper = new HarTransformMapper();
+
+        //To define metaData
+        OnmsHarPollMetaData metaData = new OnmsHarPollMetaData();
+
+        JsonNode input = mapper.readTree(inputFile);
+
+        ArrayNode jsonArrayData = harMapper.transform(input, metaData);
+
+        System.out.println("transformed har into array of " + jsonArrayData.size() + " objects :");
+
+        elasticClient.sendBulkJsonArray(jsonArrayData);
+        } catch (IOException ex) 
+        {
+            ex.printStackTrace();
+        }
        
     }
      }
