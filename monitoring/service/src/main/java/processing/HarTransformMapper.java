@@ -70,9 +70,9 @@ public class HarTransformMapper {
 		return output;
 	}
 
-	private static String getResourceFileAsString(String fileName) throws IOException {
-		ClassLoader classLoader = ClassLoader.getSystemClassLoader();
-		try (InputStream is = classLoader.getResourceAsStream(fileName)) {
+	private  String getResourceFileAsString(String fileName) throws IOException {
+//		ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+		try (InputStream is = this.getClass().getClassLoader().getResourceAsStream(fileName)) {
 			if (is == null)
 				return null;
 			try (InputStreamReader isr = new InputStreamReader(is, StandardCharsets.UTF_8);

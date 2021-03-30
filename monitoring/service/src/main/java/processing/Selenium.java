@@ -36,81 +36,80 @@ import org.openqa.selenium.remote.DesiredCapabilities;
  *
  * @author leite
  */
-public class Selenium implements Runnable{
-    
+public class Selenium implements Runnable {
+
     private String[] args;
-    public Selenium(String[] args){
+
+    public Selenium(String[] args) {
         this.args = args;
     }
 
     @Override
     public void run() {
-//        FileOutputStream fos = null;
-        BrowserMobProxy proxy = null;
-        WebDriver driver = null;
-        String data = null;
-        StringWriter writer = null;
-        HarTransformMapper harMapper = null;
-        String elasticUrl = "http://localhost:9200";
-        String indexName = "webdata";
-        String indexType = "weblog";
-        ElasticClient elasticClient;
-        elasticClient = new ElasticClient(elasticUrl, indexName, indexType);
-        
         try {
-            String gekolocation= args[0]; // "./src/main/resources/geckodriver.exe"
-            System.setProperty("webdriver.gecko.driver", gekolocation );
+//        FileOutputStream fos = null;
+            BrowserMobProxy proxy = null;
+            WebDriver driver = null;
+            String data = null;
+            StringWriter writer = null;
+            HarTransformMapper harMapper = null;
+            String elasticUrl = "http://localhost:9200";
+            String indexName = "webdata";
+            String indexType = "weblog";
+            ElasticClient elasticClient;
+            elasticClient = new ElasticClient(elasticUrl, indexName, indexType);
+
+            try {
+                String gekolocation = args[0]; // "./src/main/resources/geckodriver.exe"
+                System.setProperty("webdriver.gecko.driver", gekolocation);
 
 //            File f = new File("target/newSolTest.har");
 //            f.delete();
 //            System.out.println("**************** har file: " + f.getAbsolutePath());
+                proxy = new BrowserMobProxyServer();
+                proxy.setHarCaptureTypes(CaptureType.REQUEST_HEADERS, CaptureType.RESPONSE_HEADERS);
 
-            proxy = new BrowserMobProxyServer();
-            proxy.setHarCaptureTypes(CaptureType.REQUEST_HEADERS, CaptureType.RESPONSE_HEADERS);
+                proxy.start(0);
+                System.out.println("***************** BrowserMobProxyServer started: ");
 
-            proxy.start(0);
-            System.out.println("***************** BrowserMobProxyServer started: ");
-
-            Proxy seleniumProxy = ClientUtil.createSeleniumProxy(proxy);
-            FirefoxBinary firefoxBinary = new FirefoxBinary();
-		firefoxBinary.addCommandLineOptions("--headless");
-		FirefoxOptions firefoxOptions = new FirefoxOptions();
-		firefoxOptions.setBinary(firefoxBinary);
+                Proxy seleniumProxy = ClientUtil.createSeleniumProxy(proxy);
+                FirefoxBinary firefoxBinary = new FirefoxBinary();
+                firefoxBinary.addCommandLineOptions("--headless");
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.setBinary(firefoxBinary);
                 firefoxOptions.setCapability(CapabilityType.PROXY, seleniumProxy);
                 firefoxOptions.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 
-            driver = new FirefoxDriver(firefoxOptions);
+                driver = new FirefoxDriver(firefoxOptions);
 
-            driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
-            driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
+                driver.manage().timeouts().setScriptTimeout(20, TimeUnit.SECONDS);
+                driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
 
-            proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
+                proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
 
-            //proxy.newHar("www.bbc.co.uk");
-            proxy.newHar("learn.solent.ac.uk");
+                //proxy.newHar("www.bbc.co.uk");
+                proxy.newHar("learn.solent.ac.uk");
 
-            System.out.println("***************** driver configured - getting site: ");
+                System.out.println("***************** driver configured - getting site: ");
 
-            //            driver.get("http://192.168.1.1/");
-            driver.get("https://learn.solent.ac.uk/");
+                //            driver.get("http://192.168.1.1/");
+                driver.get("https://learn.solent.ac.uk/");
 
-            System.out.println("***************** driver get complete - writing har ");
+                System.out.println("***************** driver get complete - writing har ");
 
-            // get the HAR data
-            Har har = proxy.getHar();
-            proxy.endHar();
-            
-             
-           writer = new StringWriter();
-            try {
-                            har.writeTo(writer);
-                            data = writer.toString();
-                    } catch (IOException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                    }
-            
-            
+                // get the HAR data
+                Har har = proxy.getHar();
+                proxy.endHar();
+
+                writer = new StringWriter();
+                try {
+                    har.writeTo(writer);
+                    data = writer.toString();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
 //        try {
 //            fos = new FileOutputStream(f);
 //            har.writeTo(fos);
@@ -128,25 +127,24 @@ public class Selenium implements Runnable{
 //            } catch (InterruptedException e) {
 //
 //            }
-
-        } catch (Exception ex) {
-            System.out.println("***************** ERROR INITIALISING");
-            Logger.getLogger(Selenium.class.getName()).log(Level.SEVERE, null, ex);
-            Logger.getLogger(Selenium.class.getName()).log(Level.SEVERE, null, ex);
-            ex.printStackTrace();
-        } finally {
-            if ((proxy != null) && proxy.isStarted()) {
-                try {
-                    System.out.println("***************** shutting down server");
-                    proxy.stop();
-                } catch (Exception e) {
-                    e.printStackTrace();
+            } catch (Exception ex) {
+                System.out.println("***************** ERROR INITIALISING");
+                Logger.getLogger(Selenium.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Selenium.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
+            } finally {
+                if ((proxy != null) && proxy.isStarted()) {
+                    try {
+                        System.out.println("***************** shutting down server");
+                        proxy.stop();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-            }
-            if (driver != null) {
-                System.out.println("***************** shutting down driver");
-                driver.quit();
-            }         
+                if (driver != null) {
+                    System.out.println("***************** shutting down driver");
+                    driver.quit();
+                }
 //            if (fos != null) {
 //                try {
 //                    fos.close();
@@ -154,40 +152,41 @@ public class Selenium implements Runnable{
 //                    ex.printStackTrace();
 //                }
 //            }
-            
-        }
-        System.out.println("***************** TEST COMPLETE - File saved");
 
-        try {
-        System.out.println("***************** reading data  :" + data.length());
-        
-        ObjectMapper mapper = new ObjectMapper();
-        System.out.println("BREAKING 1");       
-        harMapper = new HarTransformMapper();
-        System.out.println("BREAKING 2");
+            }
+            System.out.println("***************** TEST COMPLETE - File saved");
 
-        //To define metaData
-        OnmsHarPollMetaData metaData = new OnmsHarPollMetaData();
-        System.out.println("BREAKING 3");
-        
-        
-        JsonNode input = mapper.readTree(data);
-        System.out.println("***************** Json Input" + input);
+            try {
+                System.out.println("***************** reading data  :" + data.length());
 
-        ArrayNode jsonArrayData = harMapper.transform(input, metaData);
-        if (jsonArrayData != null){
-            System.out.println("***************** Json Array" + jsonArrayData.toPrettyString());
-        }
-        else {
-            System.out.println("***************** Array null");
-        }
+                ObjectMapper mapper = new ObjectMapper();
+                System.out.println("BREAKING 1");
+                harMapper = new HarTransformMapper();
+                System.out.println("BREAKING 2");
 
-        System.out.println("transformed har into array of " + jsonArrayData.size() + " objects :");
+                //To define metaData
+                OnmsHarPollMetaData metaData = new OnmsHarPollMetaData();
+                System.out.println("BREAKING 3");
 
-        elasticClient.sendBulkJsonArray(jsonArrayData);
-        } catch (IOException ex) 
-        {
-            System.out.println("***************** ERROR - " + ex.toString());
+                JsonNode input = mapper.readTree(data);
+                System.out.println("***************** Json Input" + input);
+
+                ArrayNode jsonArrayData = harMapper.transform(input, metaData);
+                if (jsonArrayData != null) {
+                    System.out.println("***************** Json Array" + jsonArrayData.toPrettyString());
+                } else {
+                    System.out.println("***************** Array null");
+                }
+
+                System.out.println("transformed har into array of " + jsonArrayData.size() + " objects :");
+
+                elasticClient.sendBulkJsonArray(jsonArrayData);
+            } catch (IOException ex) {
+                System.out.println("***************** ERROR - " + ex.toString());
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 }
