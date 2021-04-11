@@ -17,7 +17,7 @@ import io.searchbox.indices.DeleteIndex;
 
 public class ElasticClient {
 	
-	private String elasticUrl = "http://localhost:9200";
+	private String elasticUrl = "http://127.0.0.1:9200/";
 	private String indexType;
 	private String indexName;
 	

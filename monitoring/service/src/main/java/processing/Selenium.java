@@ -53,7 +53,7 @@ public class Selenium implements Runnable {
             String data = null;
             StringWriter writer = null;
             HarTransformMapper harMapper = null;
-            String elasticUrl = "http://localhost:9200";
+            String elasticUrl = "";
             String indexName = "webdata";
             String indexType = "weblog";
             ElasticClient elasticClient;
@@ -88,12 +88,12 @@ public class Selenium implements Runnable {
                 proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
 
                 //proxy.newHar("www.bbc.co.uk");
-                proxy.newHar("learn.solent.ac.uk");
+                proxy.newHar("leite5.github.io");
 
                 System.out.println("***************** driver configured - getting site: ");
 
                 //            driver.get("http://192.168.1.1/");
-                driver.get("https://learn.solent.ac.uk/");
+                driver.get("https://leite5.github.io/");
 
                 System.out.println("***************** driver get complete - writing har ");
 
@@ -160,13 +160,10 @@ public class Selenium implements Runnable {
                 System.out.println("***************** reading data  :" + data.length());
 
                 ObjectMapper mapper = new ObjectMapper();
-                System.out.println("BREAKING 1");
                 harMapper = new HarTransformMapper();
-                System.out.println("BREAKING 2");
 
                 //To define metaData
                 OnmsHarPollMetaData metaData = new OnmsHarPollMetaData();
-                System.out.println("BREAKING 3");
 
                 JsonNode input = mapper.readTree(data);
                 System.out.println("***************** Json Input" + input);
