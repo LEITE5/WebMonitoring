@@ -1,2 +1,1 @@
-/monitoring/monitoring-assembly/target/
-/monitoring/docker/target/
+*/target/*
