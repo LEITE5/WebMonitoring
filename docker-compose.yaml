@@ -41,3 +41,17 @@ services:
       interval: 30s
       timeout: 10s
       retries: 50
+         
+  java:
+    image: monitoring:latest
+    container_name: javaapp
+    hostname: javaapp
+    depends_on: 
+      - es01
+    ports: 
+      - "5602:5602/tcp"
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:5602"]
+        interval: 40s
+        timeout: 10s
+        retries: 5

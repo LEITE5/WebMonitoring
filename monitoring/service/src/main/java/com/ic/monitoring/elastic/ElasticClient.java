@@ -14,10 +14,15 @@ import io.searchbox.client.config.HttpClientConfig;
 import io.searchbox.core.Bulk;
 import io.searchbox.core.Index;
 import io.searchbox.indices.DeleteIndex;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class ElasticClient {
+    
+static final Logger LOG = LoggerFactory.getLogger(ElasticClient.class);
 	
-	private String elasticUrl = "http://127.0.0.1:9200/";
+	private String elasticUrl = "http://es01:9200";
 	private String indexType;
 	private String indexName;
 	
@@ -65,7 +70,7 @@ public class ElasticClient {
 	
 	public void deleteIndex() {
 		try {
-			System.out.println("deleting index "+indexName);
+                        LOG.debug("*** deleting index: " + indexName);			
 			client.execute(new DeleteIndex.Builder(indexName).build());
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
