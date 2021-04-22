@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="HarToElasticTest" time="7.121" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="HarToElasticTest" time="7.565" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="D:\Programs\Java\jdk1.11_0_10\bin"/>
-    <property name="sun.java.command" value="C:\Users\leite\AppData\Local\Temp\surefire14238024483601714549\surefirebooter14609479935964401701.jar C:\Users\leite\AppData\Local\Temp\surefire14238024483601714549 2021-04-14T16-29-56_969-jvmRun1 surefire18102459764100210839tmp surefire_015414303390979445489tmp"/>
+    <property name="sun.java.command" value="C:\Users\leite\AppData\Local\Temp\surefire10238047002339123912\surefirebooter12935919281495199469.jar C:\Users\leite\AppData\Local\Temp\surefire10238047002339123912 2021-04-22T11-21-58_771-jvmRun1 surefire7522354541752810180tmp surefire_0901982774496862745tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\Shie\School\32FP\WebMonitoring\monitoring\service\target\test-classes;D:\Shie\School\32FP\WebMonitoring\monitoring\service\target\classes;C:\Users\leite\.m2\repository\com\schibsted\spt\data\jslt\0.1.11\jslt-0.1.11.jar;C:\Users\leite\.m2\repository\io\searchbox\jest\6.3.1\jest-6.3.1.jar;C:\Users\leite\.m2\repository\io\searchbox\jest-common\6.3.1\jest-common-6.3.1.jar;C:\Users\leite\.m2\repository\org\apache\httpcomponents\httpcore-nio\4.4.6\httpcore-nio-4.4.6.jar;C:\Users\leite\.m2\repository\org\apache\httpcomponents\httpcore\4.4.6\httpcore-4.4.6.jar;C:\Users\leite\.m2\repository\org\apache\httpcomponents\httpclient\4.5.3\httpclient-4.5.3.jar;C:\Users\leite\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\leite\.m2\repository\commons-codec\commons-codec\1.9\commons-codec-1.9.jar;C:\Users\leite\.m2\repository\org\apache\httpcomponents\httpasyncclient\4.1.3\httpasyncclient-4.1.3.jar;C:\Users\leite\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.10.0\jackson-databind-2.10.0.jar;C:\Users\leite\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.10.0\jackson-annotations-2.10.0.jar;C:\Users\leite\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.10.0\jackson-core-2.10.0.jar;C:\Users\leite\.m2\repository\junit\junit\4.13.1\junit-4.13.1.jar;C:\Users\leite\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\leite\.m2\repository\net\lightbody\bmp\browsermob-core\2.1.5\browsermob-core-2.1.5.jar;C:\Users\leite\.m2\repository\net\lightbody\bmp\littleproxy\1.1.0-beta-bmp-17\littleproxy-1.1.0-beta-bmp-17.jar;C:\Users\leite\.m2\repository\dnsjava\dnsjava\2.1.8\dnsjava-2.1.8.jar;C:\Users\leite\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.25\jcl-over-slf4j-1.7.25.jar;C:\Users\leite\.m2\repository\com\jcraft\jzlib\1.1.3\jzlib-1.1.3.jar;C:\Users\leite\.m2\repository\io\netty\netty-all\4.0.51.Final\netty-all-4.0.51.Final.jar;C:\Users\leite\.m2\repository\org\bouncycastle\bcprov-jdk15on\1.58\bcprov-jdk15on-1.58.jar;C:\Users\leite\.m2\repository\org\bouncycastle\bcpkix-jdk15on\1.58\bcpkix-jdk15on-1.58.jar;C:\Users\leite\.m2\repository\net\lightbody\bmp\mitm\2.1.5\mitm-2.1.5.jar;C:\Users\leite\.m2\repository\org\seleniumhq\selenium\selenium-java\3.141.59\selenium-java-3.141.59.jar;C:\Users\leite\.m2\repository\org\seleniumhq\selenium\selenium-api\3.141.59\selenium-api-3.141.59.jar;C:\Users\leite\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\3.141.59\selenium-chrome-driver-3.141.59.jar;C:\Users\leite\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\3.141.59\selenium-edge-driver-3.141.59.jar;C:\Users\leite\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\3.141.59\selenium-firefox-driver-3.141.59.jar;C:\Users\leite\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\3.141.59\selenium-ie-driver-3.141.59.jar;C:\Users\leite\.m2\repository\org\seleniumhq\selenium\selenium-opera-driver\3.141.59\selenium-opera-driver-3.141.59.jar;C:\Users\leite\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\3.141.59\selenium-remote-driver-3.141.59.jar;C:\Users\leite\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\3.141.59\selenium-safari-driver-3.141.59.jar;C:\Users\leite\.m2\repository\org\seleniumhq\selenium\selenium-support\3.141.59\selenium-support-3.141.59.jar;C:\Users\leite\.m2\repository\net\bytebuddy\byte-buddy\1.8.15\byte-buddy-1.8.15.jar;C:\Users\leite\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\leite\.m2\repository\com\squareup\okhttp3\okhttp\3.11.0\okhttp-3.11.0.jar;C:\Users\leite\.m2\repository\com\squareup\okio\okio\1.14.0\okio-1.14.0.jar;C:\Users\leite\.m2\repository\io\github\bonigarcia\webdrivermanager\4.2.2\webdrivermanager-4.2.2.jar;C:\Users\leite\.m2\repository\commons-io\commons-io\2.8.0\commons-io-2.8.0.jar;C:\Users\leite\.m2\repository\com\google\code\gson\gson\2.8.6\gson-2.8.6.jar;C:\Users\leite\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\leite\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.0.1\httpclient5-5.0.1.jar;C:\Users\leite\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.0.1\httpcore5-5.0.1.jar;C:\Users\leite\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.0.1\httpcore5-h2-5.0.1.jar;C:\Users\leite\.m2\repository\org\rauschig\jarchivelib\1.1.0\jarchivelib-1.1.0.jar;C:\Users\leite\.m2\repository\org\apache\commons\commons-compress\1.20\commons-compress-1.20.jar;C:\Users\leite\.m2\repository\org\jsoup\jsoup\1.13.1\jsoup-1.13.1.jar;C:\Users\leite\.m2\repository\com\google\guava\guava\23.0\guava-23.0.jar;C:\Users\leite\.m2\repository\com\google\code\findbugs\jsr305\1.3.9\jsr305-1.3.9.jar;C:\Users\leite\.m2\repository\com\google\errorprone\error_prone_annotations\2.0.18\error_prone_annotations-2.0.18.jar;C:\Users\leite\.m2\repository\com\google\j2objc\j2objc-annotations\1.1\j2objc-annotations-1.1.jar;C:\Users\leite\.m2\repository\org\codehaus\mojo\animal-sniffer-annotations\1.14\animal-sniffer-annotations-1.14.jar;C:\Users\leite\.m2\repository\org\slf4j\slf4j-api\1.7.12\slf4j-api-1.7.12.jar;C:\Users\leite\.m2\repository\org\apache\logging\log4j\log4j-slf4j-impl\2.12.1\log4j-slf4j-impl-2.12.1.jar;C:\Users\leite\.m2\repository\org\apache\logging\log4j\log4j-api\2.12.1\log4j-api-2.12.1.jar;C:\Users\leite\.m2\repository\org\apache\logging\log4j\log4j-core\2.12.1\log4j-core-2.12.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\leite\AppData\Local\Temp\surefire14238024483601714549\surefirebooter14609479935964401701.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\leite\AppData\Local\Temp\surefire10238047002339123912\surefirebooter12935919281495199469.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.10+8-LTS-162"/>
@@ -61,32 +61,32 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="test" classname="HarToElasticTest" time="7.05">
-    <system-out><![CDATA[16:30:00.428 [main] INFO  io.searchbox.client.AbstractJestClient - Setting server pool to a list of 1 servers: [http://localhost:9200]
-16:30:00.436 [main] INFO  io.searchbox.client.JestClientFactory - Using multi thread/connection supporting pooling connection manager
-16:30:00.711 [main] INFO  io.searchbox.client.JestClientFactory - Using default GSON instance
-16:30:00.711 [main] INFO  io.searchbox.client.JestClientFactory - Node Discovery disabled...
-16:30:00.711 [main] INFO  io.searchbox.client.JestClientFactory - Idle connection reaping disabled...
+  <testcase name="test" classname="HarToElasticTest" time="7.511">
+    <system-out><![CDATA[11:22:02.865 [main] INFO  io.searchbox.client.AbstractJestClient - Setting server pool to a list of 1 servers: [http://localhost:9200]
+11:22:02.886 [main] INFO  io.searchbox.client.JestClientFactory - Using multi thread/connection supporting pooling connection manager
+11:22:03.025 [main] INFO  io.searchbox.client.JestClientFactory - Using default GSON instance
+11:22:03.026 [main] INFO  io.searchbox.client.JestClientFactory - Node Discovery disabled...
+11:22:03.026 [main] INFO  io.searchbox.client.JestClientFactory - Idle connection reaping disabled...
 reading inputFile from :D:\Shie\School\32FP\WebMonitoring\monitoring\service\.\src\test\resources\newSolTest.tmp
 transformed har into array of 43 objects :
-16:30:01.003 [main] DEBUG io.searchbox.client.http.JestHttpClient - POST method created based on client request
-16:30:01.006 [main] DEBUG io.searchbox.client.http.JestHttpClient - Request method=POST url=http://localhost:9200/onmshardata/onmshartype/_bulk
-16:30:01.022 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
-16:30:01.030 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
-16:30:01.031 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 2; total allocated: 0 of 20]
-16:30:01.042 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection leased: [id: 0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 2; total allocated: 1 of 20]
-16:30:01.043 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Opening connection {}->http://localhost:9200
-16:30:01.045 [main] DEBUG org.apache.http.impl.conn.DefaultHttpClientConnectionOperator - Connecting to localhost/127.0.0.1:9200
-16:30:03.092 [main] DEBUG org.apache.http.impl.conn.DefaultHttpClientConnectionOperator - Connect to localhost/127.0.0.1:9200 timed out. Connection will be retried using another IP address
-16:30:03.092 [main] DEBUG org.apache.http.impl.conn.DefaultHttpClientConnectionOperator - Connecting to localhost/0:0:0:0:0:0:0:1:9200
-16:30:05.146 [main] DEBUG org.apache.http.impl.conn.DefaultManagedHttpClientConnection - http-outgoing-0: Shutdown connection
-16:30:05.146 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Connection discarded
-16:30:05.147 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection released: [id: 0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 2; total allocated: 0 of 20]
+11:22:03.329 [main] DEBUG io.searchbox.client.http.JestHttpClient - POST method created based on client request
+11:22:03.332 [main] DEBUG io.searchbox.client.http.JestHttpClient - Request method=POST url=http://localhost:9200/onmshardata/onmshartype/_bulk
+11:22:03.338 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+11:22:03.347 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
+11:22:03.348 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection request: [route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 2; total allocated: 0 of 20]
+11:22:03.360 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection leased: [id: 0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 1 of 2; total allocated: 1 of 20]
+11:22:03.361 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Opening connection {}->http://localhost:9200
+11:22:03.363 [main] DEBUG org.apache.http.impl.conn.DefaultHttpClientConnectionOperator - Connecting to localhost/127.0.0.1:9200
+11:22:05.392 [main] DEBUG org.apache.http.impl.conn.DefaultHttpClientConnectionOperator - Connect to localhost/127.0.0.1:9200 timed out. Connection will be retried using another IP address
+11:22:05.394 [main] DEBUG org.apache.http.impl.conn.DefaultHttpClientConnectionOperator - Connecting to localhost/0:0:0:0:0:0:0:1:9200
+11:22:07.426 [main] DEBUG org.apache.http.impl.conn.DefaultManagedHttpClientConnection - http-outgoing-0: Shutdown connection
+11:22:07.426 [main] DEBUG org.apache.http.impl.execchain.MainClientExec - Connection discarded
+11:22:07.427 [main] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection released: [id: 0][route: {}->http://localhost:9200][total kept alive: 0; route allocated: 0 of 2; total allocated: 0 of 20]
 ]]></system-out>
     <system-err><![CDATA[io.searchbox.client.config.exception.CouldNotConnectException: Could not connect to http://localhost:9200
 	at io.searchbox.client.http.JestHttpClient.execute(JestHttpClient.java:73)
 	at io.searchbox.client.http.JestHttpClient.execute(JestHttpClient.java:63)
-	at com.ic.monitoring.elastic.ElasticClient.sendBulkJsonArray(ElasticClient.java:59)
+	at com.ic.monitoring.elastic.ElasticClient.sendBulkJsonArray(ElasticClient.java:64)
 	at HarToElasticTest.test(HarToElasticTest.java:58)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)

@@ -19,6 +19,6 @@
        <AppenderRef ref="appLog"/>
     </Root>
 
-    <Logger name="org.opennms.elastic" level="DEBUG"/>
+    <Logger name="processing" level="DEBUG"/>
   </Loggers>
 </Configuration>
