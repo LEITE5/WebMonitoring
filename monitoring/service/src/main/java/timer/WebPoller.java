@@ -27,7 +27,7 @@ public class WebPoller {
 
         System.out.println("ITERATION --- ");
         Selenium task = new Selenium(args);
-        executor.scheduleAtFixedRate(task, 0, 1, TimeUnit.MINUTES);
+        executor.scheduleAtFixedRate(task, 0, 2, TimeUnit.MINUTES);
 
     }
 
