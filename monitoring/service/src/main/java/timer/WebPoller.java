@@ -1,20 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package timer;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import processing.Selenium;
-
 /**
  *
  * @author leite
- * Execution command through one jar file in assembly - java -jar assembly-onejar.jar D:\Downloads\geckodriver.exe
  *
  */
 public class WebPoller {

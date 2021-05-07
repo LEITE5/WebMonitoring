@@ -81,7 +81,6 @@ public class Selenium implements Runnable {
 
                 proxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
 
-                //proxy.newHar("www.bbc.co.uk");
                 proxy.newHar("solent.ac.uk");
 
                 LOG.debug("****** driver configured - getting site");
@@ -99,7 +98,6 @@ public class Selenium implements Runnable {
                     har.writeTo(writer);
                     data = writer.toString();
                 } catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             } catch (Exception ex) {

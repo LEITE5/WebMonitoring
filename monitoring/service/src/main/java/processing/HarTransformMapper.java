@@ -71,7 +71,6 @@ public class HarTransformMapper {
 	}
 
 	private  String getResourceFileAsString(String fileName) throws IOException {
-//		ClassLoader classLoader = ClassLoader.getSystemClassLoader();
 		try (InputStream is = this.getClass().getClassLoader().getResourceAsStream(fileName)) {
 			if (is == null)
 				return null;

@@ -1,12 +1,9 @@
 package com.ic.monitoring.elastic;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-
 import io.searchbox.action.BulkableAction;
 import io.searchbox.client.JestClient;
 import io.searchbox.client.JestClientFactory;
@@ -25,7 +22,6 @@ static final Logger LOG = LoggerFactory.getLogger(ElasticClient.class);
 	private String elasticUrl = "http://es01:9200";
 	private String indexType;
 	private String indexName;
-	
 	private final JestClient client;
 	
 	public ElasticClient(String elasticUrl, String indexName, String indexType) {
@@ -42,7 +38,6 @@ static final Logger LOG = LoggerFactory.getLogger(ElasticClient.class);
 		client = factory.getObject();
 		
 	}
-	
 
 	public void sendBulkJsonArray(ArrayNode jsonArrayData ) {
 		
@@ -63,7 +58,6 @@ static final Logger LOG = LoggerFactory.getLogger(ElasticClient.class);
 		try {
 			client.execute(bulk);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -73,7 +67,6 @@ static final Logger LOG = LoggerFactory.getLogger(ElasticClient.class);
                         LOG.debug("*** deleting index: " + indexName);			
 			client.execute(new DeleteIndex.Builder(indexName).build());
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 	}
@@ -83,7 +76,6 @@ static final Logger LOG = LoggerFactory.getLogger(ElasticClient.class);
 			try {
 				client.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	}
