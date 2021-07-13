@@ -1,5 +1,7 @@
 ## WebMonitoring - Final Project Directory
 
+Synthethic Transaction Monitoring application developed with the intuit of testing how synthethic transactions can be used to detect the origin of problems encountered by users when navigate a website.
+
 # Requirements
 
 JDK11
