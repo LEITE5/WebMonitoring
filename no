@@ -1,0 +1,126 @@
+[33mcommit 1cae544a9044ee8e87ca04e74cee42abd2c3441f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Fri May 7 14:20:20 2021 +0100
+
+    code clean up
+
+[33mcommit db3311f3c6f7eb213eeb574c8be50f06bb2f104c[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Fri May 7 14:15:16 2021 +0100
+
+    added sources for report material and final report
+
+[33mcommit e0e917d6f234badea29a896e56e6b059a5aba890[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Sun May 2 18:04:03 2021 +0100
+
+    adding sources data for report
+
+[33mcommit 935400f5b55e9581458df7fd8a4e4a78516f1b6f[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Sat May 1 13:23:38 2021 +0100
+
+    added diagrams and documentation for report
+
+[33mcommit 6975cc415bcecf07edca2aef5241edcc159c5a23[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Thu Apr 29 17:32:38 2021 +0100
+
+    commit for sol test
+
+[33mcommit 75583734c1a26bd968b6a97b3987a06094cd4ce6[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Thu Apr 29 13:49:05 2021 +0100
+
+    changed script time to 1 minute
+
+[33mcommit ce0ecb140f4345c7277da9f9b2d60d89d3ad275e[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Thu Apr 29 13:25:18 2021 +0100
+
+    changed target website
+
+[33mcommit 91c3d6506fbe9860dcdd7a0d2cf65858909de063[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Thu Apr 22 11:30:41 2021 +0100
+
+    error on building docker directory, pom needs update, monitoring can be done with docker compose file now
+
+[33mcommit 6637248c775ca6c750e02868c25c5f5e2a080821[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Wed Apr 14 19:09:21 2021 +0100
+
+    dockercompose file now loads all services, added log for clarify TODO connection between javaapp and es01
+
+[33mcommit 4c1fdb5602d2ffe149726e2dfa39c72c9695d5e5[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Sun Apr 11 20:10:52 2021 +0100
+
+    changes to dockerfile, and testing on testbed target
+
+[33mcommit 5e4d23ab3908f02d8352fbfda7cd7aa06ee86870[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Sun Apr 11 20:09:59 2021 +0100
+
+    update gitignore file
+
+[33mcommit 464dcc14755a438f005cb9270631d3f21bc8f5ac[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Tue Mar 30 18:07:48 2021 +0100
+
+    fixed one jar file build, now executable; updated test settings
+
+[33mcommit ab278c6bb1615ac7d26be934153d664226f2285c[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Sat Mar 27 23:08:14 2021 +0000
+
+    added test class to run manually
+
+[33mcommit 789b7ea0fa5cd9d28ecac21c7d3414b3a2a2f46a[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Wed Mar 24 17:56:53 2021 +0000
+
+    update, selenium needs to be fixed - stopping at initialize HarTransformMapper
+
+[33mcommit 7a13d270b82c7922e9a626834827276a07d015bf[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Wed Mar 17 17:27:22 2021 +0000
+
+    commit before docker changes
+
+[33mcommit fce0040600b9135695005004a7a03761c98e66bb[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Tue Mar 9 21:14:51 2021 +0000
+
+    created treadpool and changed hartransform file to support more data
+
+[33mcommit 589565b6a0c141d006515de340da2bf4ee5797bd[m
+Merge: 1f1919d 891d614
+Author: leite <leitesdzn@gmail.com>
+Date:   Sat Mar 6 17:49:51 2021 +0000
+
+    Merge branch 'main' of https://github.com/LEITE5/WebMonioring
+
+[33mcommit 1f1919d029fec3445b42f3b7fa790221590e3c60[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Sat Mar 6 17:49:39 2021 +0000
+
+    initial artifact
+
+[33mcommit 891d61459e8e38b5fc77b1e48b2356743d8324c4[m
+Author: LEITE5 <35380350+LEITE5@users.noreply.github.com>
+Date:   Sat Mar 6 17:48:45 2021 +0000
+
+    Update README.md
+
+[33mcommit 2f05067bcbe75ed57977d4c7ac299152ea3eb4a7[m
+Author: leite <leitesdzn@gmail.com>
+Date:   Sat Mar 6 17:41:23 2021 +0000
+
+    initial commit with first version artifact and current documentation
+
+[33mcommit 288da7557354bdf33e522b7d0a4c1b5d97f5362e[m
+Author: LEITE5 <35380350+LEITE5@users.noreply.github.com>
+Date:   Sat Mar 6 17:35:45 2021 +0000
+
+    Initial commit
