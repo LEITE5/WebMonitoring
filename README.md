@@ -38,10 +38,10 @@ Linux Based
 The development of the application is split into 4 main components:
 * Data Capture - data is generated with Selenium by simulating a user interaction with a webpage and [BrowserMob Proxy](https://github.com/lightbody/browsermob-proxy) is used to capture the HTTP requests and responses to a HAR file.
 * Storing Data - the HAR files are broken down into smaller JSON and saved as individual transactions on ElasticSearch using [Jest](https://github.com/searchbox-io/Jest).
-* Data Visualisation - stored data can be viewed through a dashboard in Kibana where it is presented through graphs and charts. (Import chart to Kibana from: XXXX)
+* Data Visualisation - stored data can be viewed through a dashboard in Kibana where it is presented through graphs and charts. (Import [export file](https://github.com/LEITE5/WebMonitoring/blob/main/export.json) to Kibana for charts.)
 * Deployment - The components were packaged into Docker containers and can be started using the DockerCompose file in the main directory.
 
-The complete report about this project can be found [Here](https://github.com/LEITE5/WebMonitoring/blob/main/Documentation/LEITE_COM616_AE2.pdf). 
+The complete report about this project can be found [here](https://github.com/LEITE5/WebMonitoring/blob/main/Documentation/LEITE_COM616_AE2.pdf). 
 
 Deployment Diagram
 
